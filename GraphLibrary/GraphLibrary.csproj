@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7735C904-FD58-4456-A9B0-4DB01E5DBDA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GraphLibrary</RootNamespace>
+    <AssemblyName>GraphLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GraphSharp">
+      <HintPath>User control\Present\Lib\GraphSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp.Contracts">
+      <HintPath>User control\Present\Lib\GraphSharp.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp.Controls">
+      <HintPath>User control\Present\Lib\GraphSharp.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Contracts">
+      <HintPath>User control\Present\Lib\Microsoft.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QuickGraph">
+      <HintPath>User control\Present\Lib\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>User control\Present\Lib\WPFExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms.cs" />
+    <Compile Include="API\InternalAPI.cs" />
+    <Compile Include="API\Print.cs" />
+    <Compile Include="Graph\Edges\GEdge.cs" />
+    <Compile Include="Graph\GPath.cs" />
+    <Compile Include="Graph\Tree\BinaryTree.cs" />
+    <Compile Include="Graph\Tree\BinaryTreeNode.cs" />
+    <Compile Include="Graph\Tree\Node.cs" />
+    <Compile Include="Graph\Tree\NodeList.cs" />
+    <Compile Include="Misc\Matrix.cs" />
+    <Compile Include="User control\Present\PresentBits\PocEdge.cs" />
+    <Compile Include="User control\Present\PresentBits\PocGraph.cs" />
+    <Compile Include="User control\Present\PresentBits\PocGraphLayout.cs" />
+    <Compile Include="User control\Present\PresentBits\PocVertex.cs" />
+    <Compile Include="User control\Present\PresentWindow.xaml.cs">
+      <DependentUpon>PresentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User control\Present\ViewModels\WindowViewModel.cs" />
+    <Compile Include="User control\AddGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User control\AddGraphForm.Designer.cs">
+      <DependentUpon>AddGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\GGraph.cs" />
+    <Compile Include="API\API.cs" />
+    <Compile Include="Graph\GList.cs" />
+    <Compile Include="Graph\Vertices\GVertex.cs" />
+    <Compile Include="Graph\Vertices\GVertices.cs" />
+    <Compile Include="Misc\Misc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="User control\AddGraphForm.resx">
+      <DependentUpon>AddGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="User control\Present\PresentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="User control\Present\Lib\GraphSharp.Contracts.dll" />
+    <Content Include="User control\Present\Lib\GraphSharp.Controls.dll" />
+    <Content Include="User control\Present\Lib\GraphSharp.dll" />
+    <Content Include="User control\Present\Lib\Microsoft.Contracts.dll" />
+    <Content Include="User control\Present\Lib\QuickGraph.dll" />
+    <Content Include="User control\Present\Lib\WPFExtensions.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
